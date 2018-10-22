@@ -39,6 +39,8 @@ function fullScreen(element) {
 
 /* Input */
 function Input(inputType, DOMElement, callback) {
+
+  /* addEventListener is asynchronous, therefore 'callback' needed */
   DOMElement.addEventListener(inputType, function(event) {
       var x = event.clientX;
       var y = event.clientY;
@@ -52,6 +54,11 @@ function Input(inputType, DOMElement, callback) {
 
 //This is an asynchronous event
 function Output(element,x,y){
-  div.textContent = x + ", " + y;
-  div.style.backgroundColor = "rgb(" + x + "," + y + ", 100)";
+
+  element.textContent = x + ", " + y;
+  element.style.backgroundColor = "rgb(" + x + "," + y + ", 100)";
 }
+
+/* Instatiation of functions */
+
+Input('mousemove', fullScreen('DIV'),Output);
