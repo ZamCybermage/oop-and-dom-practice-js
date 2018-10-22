@@ -37,7 +37,7 @@ function fullScreen(element) {
 }
 
 function Input(inputType, DOMElement, callback) {
-  div.addEventListener("mousemove", function(event) {
+  DOMElement.addEventListener(inputType, function(event) {
       var x = event.clientX;
       var y = event.clientY;
       div.textContent = x + ", " + y;
