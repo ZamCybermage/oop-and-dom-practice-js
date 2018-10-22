@@ -36,11 +36,22 @@ function fullScreen(element) {
     return newDiv;
 }
 
+
+/* Input */
 function Input(inputType, DOMElement, callback) {
   DOMElement.addEventListener(inputType, function(event) {
       var x = event.clientX;
       var y = event.clientY;
-      div.textContent = x + ", " + y;
-      div.style.backgroundColor = "rgb(" + x + "," + y + ", 100)";
+      /* You will not get event synchronously so....You use a callback */
+      callback(DOMElement,x,y);
     });
+}
+
+
+/* Output */
+
+//This is an asynchronous event
+function Output(element,x,y){
+  div.textContent = x + ", " + y;
+  div.style.backgroundColor = "rgb(" + x + "," + y + ", 100)";
 }
